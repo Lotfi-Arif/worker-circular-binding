@@ -1,0 +1,10 @@
+name = "worker2"
+main = "src/index.ts"
+compatibility_date = "2023-05-04"
+
+
+[env.dev]
+name = "worker2-dev"
+services = [
+  { binding = "WORKER1", service = "worker1-dev" },
+]
