@@ -1,10 +1,16 @@
-name = "worker1"
 main = "src/index.ts"
-compatibility_date = "2023-05-04"
+usage_model = "bundled"
+compatibility_date = "2022-04-27"
+minify = true
+tsconfig = "./tsconfig.json"
+workers_dev = false
 
 
 [env.dev]
-name = "worker1-dev"
+name = "worker-one-dev"
 services = [
-  { binding = "WORKER2", service = "worker2-dev" },
+  { binding = "WORKERTWO", service = "worker-two-dev" },
 ]
+
+[env.dev.durable_objects]
+bindings = [{ name = "WORKERONE_DO", class_name = "WorkerOneDO" }]
